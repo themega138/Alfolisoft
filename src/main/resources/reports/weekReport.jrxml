@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Reporte semanal" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fbbd2f3d-6d29-448c-bec8-4ebbdac4c5b3">
+	<property name="ireport.zoom" value="0.6830134553650709"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="549" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="22" width="100" height="20" uuid="ecb94235-4b78-493c-ba80-a6f428526d14"/>
+				<text><![CDATA[Static text]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

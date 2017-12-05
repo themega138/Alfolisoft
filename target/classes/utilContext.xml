@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    <bean class="com.mq310.alfolisoft.managers.InitializerManager">
+        <property name="accountsGroupService" ref="accountsGroupDaoService"/>
+        <property name="accountsPlanEditor" ref="accountsPlanEditorDialog"/>
+        <property name="accountsPlanService" ref="accountsPlanDaoService"/>
+        <property name="balancesEditor" ref="InitializerBalancesEditorDialog"/>
+        <property name="bankAccountEditor" ref="bankAccountsEditorDialog"/>
+        <property name="bankService" ref="bankDaoService"/>
+        <property name="memberService" ref="memberDaoService"/>
+    </bean>
+    
+    <bean id="accountsGroupFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.AccountsGroupFormEditorController"
+          init-method="init" scope="prototype">
+    </bean>
+    
+    <bean id="accountsGroupEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Grupos:"/>
+        <property name="formController" ref="accountsGroupFormEditorController"/>
+        <property name="imageUrl" value="/images/accounts.png"/>
+    </bean>
+    
+    <bean id="accountFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.AccountFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="accountsGroupFinder" ref="accountsGroupFinderDialog"/>
+        <property name="accountsGroupEditor" ref="accountsGroupEditorDialog"/>
+        <property name="accountsGroupService" ref="accountsGroupDaoService"/>
+    </bean>
+    
+    <bean id="accountEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Cuentas:"/>
+        <property name="formController" ref="accountFormEditorController"/>
+        <property name="imageUrl" value="/images/accounts.png"/>
+    </bean>
+    
+    <bean id="incomingBankDocumentFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.IncomingBankDocumentFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="memberFinderDialog" ref="memberFinderDialog"/>
+        <property name="memberEditorDialog" ref="memberEditorDialog"/>
+        <property name="bankAccountFinderDialog" ref="bankAccountFinderDialog"/>
+        <property name="memberService" ref="memberDaoService"/>
+    </bean>
+    
+    <bean id="incomingBankDocumentEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Documentos:"/>
+        <property name="formController" ref="incomingBankDocumentFormEditorController"/>
+        <property name="imageUrl" value="/images/bankAccounts.png"/>
+    </bean>
+    
+    <bean id="accountsPlanFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.AccountsPlanFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="accountsPlanItemEditor" ref="accountsPlanItemEditorDialog"/>
+    </bean>
+    
+    <bean id="accountsPlanEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Plan de Cuentas:"/>
+        <property name="formController" ref="accountsPlanFormEditorController"/>
+        <property name="imageUrl" value="/images/accountsPlan.png"/>
+    </bean>
+    
+    <bean id="accountsPlanItemFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.AccountsPlanItemFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="accountFinder" ref="accountFinderDialog"/>
+        <property name="accountEditor" ref="accountEditorDialog"/>
+        <property name="accountsGroupService" ref="accountsGroupDaoService"/>
+    </bean>
+    
+    <bean id="accountsPlanItemEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Plan de Cuentas:"/>
+        <property name="formController" ref="accountsPlanItemFormEditorController"/>
+        <property name="imageUrl" value="/images/accountsPlan.png"/>
+    </bean>
+    
+    <bean id="memberFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.MemberFormEditorController"
+          init-method="init" scope="prototype">
+    </bean>
+    
+    <bean id="memberEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Editor de Personas"/>
+        <property name="formController" ref="memberFormEditorController"/>
+        <property name="imageUrl" value="/images/members.png"/>
+    </bean>
+    
+    <bean id="memberFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.MemberFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="memberService" ref="memberDaoService"/>
+        <property name="imageUrl" value="/images/members.png"/>
+    </bean>
+    
+    <bean id="accountsGroupFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.AccountsGroupFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="accountsGroupService" ref="accountsGroupDaoService"/>
+        <property name="imageUrl" value="/images/accounts.png"/>
+    </bean>
+    
+    <bean id="accountFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.AccountFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="accountsGroupService" ref="accountsGroupDaoService"/>
+        <property name="imageUrl" value="/images/accounts.png"/>
+    </bean>
+    
+    <bean id="bankFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.BankFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="bankService" ref="bankDaoService"/>
+        <property name="imageUrl" value="/images/bankAccounts.png"/>
+    </bean>
+    
+    <bean id="InitializerBalancesFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.InitializerBalancesFormEditorController"
+          init-method="init" scope="prototype">
+    </bean>
+    
+    <bean id="InitializerBalancesEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Saldos Iniciales en cuentas"/>
+        <property name="formController" ref="InitializerBalancesFormEditorController"/>
+        <property name="imageUrl" value="/images/accountsPlan.png"/>
+    </bean>
+    
+    <bean id="bankAccountsFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.BankAccountsFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="bankFinderDialog" ref="bankFinderDialog"/>
+    </bean>
+    
+    <bean id="bankAccountsEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Cuentas Bancarias"/>
+        <property name="formController" ref="bankAccountsFormEditorController"/>
+        <property name="imageUrl" value="/images/bankAccounts.png"/>
+    </bean>
+    
+    <bean id="bankAccountFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.BankAccountFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="bankAccountService" ref="bankAccountsDaoService"/>
+        <property name="imageUrl" value="/images/accountsPlan.png"/>
+    </bean>
+    
+    <bean id="packetFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.PacketFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="memberFinderDialog" ref="memberFinderDialog"/>
+        <property name="memberEditorDialog" ref="memberEditorDialog"/>
+        <property name="specificOfferingEditorDialog" ref="specificOfferingEditorDialog"/>
+        <property name="memberService" ref="memberDaoService"/>
+        <property name="packetService" ref="packetDaoService"/>
+    </bean>
+    
+    <bean id="packetEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Sobres"/>
+        <property name="formController" ref="packetFormEditorController"/>
+        <property name="imageUrl" value="/images/countings.png"/>
+    </bean>
+    
+    <bean id="specificOfferingFormEditorController"
+          class="com.mq310.alfolisoft.controllers.editors.forms.SpecificOfferingFormEditorController"
+          init-method="init" scope="prototype">
+        <property name="accountsPlanItemService" ref="accountsPlanItemDaoService"/>
+        <property name="accountsPlanItemFinder" ref="accountsPlanItemFinderDialog"/>
+    </bean>
+    
+    <bean id="specificOfferingEditorDialog" class="com.mq310.alfolisoft.controllers.editors.GeneralEditorDialog"
+          scope="prototype">
+        <property name="dialogTitle" value="Ofrendas Especificas."/>
+        <property name="formController" ref="specificOfferingFormEditorController"/>
+        <property name="imageUrl" value="/images/countings.png"/>
+    </bean>
+    
+    <bean id="accountsPlanItemFinderDialog"
+          class="com.mq310.alfolisoft.controllers.finders.AccountsPlanItemFinderDialog"
+          scope="prototype">
+        <property name="dao" ref="dao"/>
+        <property name="accountsPlanItemService" ref="accountsPlanItemDaoService"/>
+        <property name="imageUrl" value="/images/accountsPlan.png"/>
+    </bean>
+    
+</beans>

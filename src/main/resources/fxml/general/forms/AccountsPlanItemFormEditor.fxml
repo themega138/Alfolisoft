@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane id="AnchorPane" fx:id="mainContent" hgap="5.0" prefHeight="170.0" prefWidth="429.0" vgap="5.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <rowConstraints>
+      <RowConstraints minHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="30.0" vgrow="NEVER" />
+      <RowConstraints minHeight="30.0" vgrow="ALWAYS" />
+      <RowConstraints minHeight="45.0" prefHeight="45.0" vgrow="NEVER" />
+   </rowConstraints>
+   <columnConstraints>
+      <ColumnConstraints halignment="RIGHT" minWidth="80.0" />
+      <ColumnConstraints hgrow="ALWAYS" />
+   </columnConstraints>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Label text="Cuenta:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Label fx:id="accountNameLB" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onAddAccount">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="304.0" layoutY="13.0" mnemonicParsing="false" onAction="#onNewAccount">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children></HBox>
+         </children>
+      </HBox>
+      <Label text="Grupo:" GridPane.rowIndex="1">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label text="Descripcion:" GridPane.rowIndex="2">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="percentLB" text="\%:" GridPane.rowIndex="3">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Label fx:id="groupLB" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Label fx:id="descriptionLB" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+      <Slider fx:id="percentSL" blockIncrement="0.1" majorTickUnit="20.0" minorTickCount="1" showTickLabels="true" showTickMarks="true" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+   </children>
+</GridPane>

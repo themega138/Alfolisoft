@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainContent" prefHeight="569.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mq310.alfolisoft.controllers.countings.CountingsCreationViewController">
+    <children>
+      <TabPane layoutX="59.0" layoutY="29.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <tabs>
+          <Tab text="Dashboard">
+               <content>
+                  <AnchorPane>
+                     <children>
+                        <TitledPane animated="false" collapsible="false" layoutX="118.0" layoutY="118.0" prefWidth="500.0" text="Listado de Sobres" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <AnchorPane>
+                                 <children>
+                                    <TableView fx:id="packetsTableView" layoutX="33.0" layoutY="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="40.0" />
+                                    <HBox alignment="CENTER_LEFT" layoutX="57.0" layoutY="30.0" prefHeight="30.0" spacing="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <TextField fx:id="searchPacketTF" promptText="Buscar..." HBox.hgrow="ALWAYS" />
+                                          <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#onChangeNumber" visible="false">
+                                                   <graphic>
+                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                                   </graphic>
+                                                </Button>
+                                                <Button mnemonicParsing="false" onAction="#onEditPacket">
+                                                   <graphic>
+                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="/images/edit.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                                <Button defaultButton="true" mnemonicParsing="false" onAction="#onAddPacket">
+                                                   <graphic>
+                                                      <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="/images/plus.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </graphic>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" layoutX="503.0" layoutY="10.0" prefWidth="340.0" text="Balance General" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <GridPane prefHeight="267.0" prefWidth="297.0">
+                                 <children>
+                                    <Label text="Total de Ingresos:">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Total en Sobres" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane prefHeight="90.0" prefWidth="297.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="Transferencias:" GridPane.rowIndex="2" />
+                                          <Label layoutX="30.0" layoutY="17.0" text="Depositos" GridPane.rowIndex="1" />
+                                          <Label layoutX="30.0" layoutY="47.0" text="Cheques:" />
+                                          <Label layoutX="34.0" layoutY="77.0" text="Efectivo:" GridPane.rowIndex="3" />
+                                          <Label layoutX="64.0" layoutY="86.0" text="Total:" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalChecksLB" GridPane.columnIndex="1" />
+                                          <Label fx:id="totalDepositsLB" layoutX="279.0" layoutY="14.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="totalTransfersLB" layoutX="279.0" layoutY="38.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="totalCashLB" layoutX="279.0" layoutY="62.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label fx:id="totalIncomingLB" layoutX="279.0" layoutY="86.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane hgap="5.0" layoutX="10.0" layoutY="40.0" prefHeight="90.0" prefWidth="297.0" vgap="5.0" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label layoutX="30.0" layoutY="47.0" text="Cantidad de Sobres:" />
+                                          <Label layoutX="64.0" layoutY="86.0" text="Total:" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                             <children>
+                                                <Label fx:id="totalPacketsLB" layoutX="30.0" layoutY="16.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                   <font>
+                                                      <Font name="System Bold Italic" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                             </children>
+                                          </HBox>
+                                          <Label fx:id="quantityLB" layoutX="256.0" layoutY="44.0" GridPane.columnIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                                          <ColumnConstraints halignment="LEFT" hgrow="ALWAYS" />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets left="20.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints vgrow="NEVER" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Diferencia:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="differenceLB">
+                                             <font>
+                                                <Font name="System Bold Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="NEVER" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                    <RowConstraints minHeight="120.0" vgrow="NEVER" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="NEVER" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <HBox alignment="BOTTOM_RIGHT" layoutX="518.0" layoutY="440.0" prefHeight="30.0" prefWidth="290.0" spacing="5.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#onShowReports" text="Reportes">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </Button>
+                              <Button defaultButton="true" mnemonicParsing="false" onAction="#onFinishCounting" text="Terminar">
+                                 <graphic>
+                                    <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true" />
+                                 </graphic>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab text="Ingresos">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TitledPane animated="false" collapsible="false" layoutX="446.0" layoutY="10.0" prefWidth="340.0" text="Efectivo" textAlignment="CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <GridPane>
+                                 <children>
+                                    <Label text="Billetes:">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="10.0" layoutY="17.0" text="Monedas" GridPane.rowIndex="2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane hgap="10.0" vgap="5.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <Label text="100 Bs." />
+                                          <Label text="50 Bs." GridPane.rowIndex="1" />
+                                          <Label layoutX="95.0" layoutY="47.0" text="20 Bs." GridPane.rowIndex="2" />
+                                          <Label layoutX="95.0" layoutY="77.0" text="10 Bs." GridPane.rowIndex="3" />
+                                          <Label layoutX="95.0" layoutY="107.0" text="5 Bs." GridPane.rowIndex="4" />
+                                          <Label layoutX="98.0" layoutY="137.0" text="2 Bs." GridPane.rowIndex="5" />
+                                          <TextField fx:id="TF_100" alignment="CENTER_RIGHT" GridPane.columnIndex="1" />
+                                          <TextField fx:id="TF_50" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="TF_20" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="TF_10" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="TF_5" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="103.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="TF_2" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="LB_100" layoutX="30.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" />
+                                          <Label fx:id="LB_50" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                          <Label fx:id="LB_20" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                                          <Label fx:id="LB_10" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                                          <Label fx:id="LB_5" layoutX="272.0" layoutY="107.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                                          <Label fx:id="LB_2" layoutX="272.0" layoutY="137.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                                          <Label text="Bs." GridPane.columnIndex="3" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="150.0" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                                       </columnConstraints>
+                                       <padding>
+                                          <Insets left="8.0" />
+                                       </padding>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <GridPane.margin>
+                                          <Insets />
+                                       </GridPane.margin>
+                                    </GridPane>
+                                    <GridPane hgap="10.0" layoutX="10.0" layoutY="40.0" vgap="5.0" GridPane.rowIndex="3">
+                                       <children>
+                                          <Label text="1 Bs." />
+                                          <Label text="0.50 Bs." GridPane.rowIndex="1" />
+                                          <Label layoutX="95.0" layoutY="47.0" text="0.25 Bs." GridPane.rowIndex="2" />
+                                          <Label layoutX="95.0" layoutY="77.0" text="0.125 Bs." GridPane.rowIndex="3" />
+                                          <Label layoutX="95.0" layoutY="107.0" text="0.10 Bs" GridPane.rowIndex="4" />
+                                          <Label layoutX="98.0" layoutY="137.0" text="0.05 Bs." GridPane.rowIndex="5" />
+                                          <TextField fx:id="TF_1" alignment="CENTER_RIGHT" GridPane.columnIndex="1" />
+                                          <TextField fx:id="TF_050" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="TF_025" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField fx:id="TF_0125" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="13.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="TF_010" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="103.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="TF_005" alignment="CENTER_RIGHT" layoutX="65.0" layoutY="133.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="LB_1" layoutX="30.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" />
+                                          <Label fx:id="LB_050" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                          <Label fx:id="LB_025" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+                                          <Label fx:id="LB_0125" layoutX="272.0" layoutY="17.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+                                          <Label fx:id="LB_010" layoutX="272.0" layoutY="107.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" />
+                                          <Label fx:id="LB_005" layoutX="272.0" layoutY="137.0" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" />
+                                          <Label text="Bs." GridPane.columnIndex="3" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                                          <Label text="Bs." GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="-Infinity" />
+                                          <ColumnConstraints hgrow="NEVER" minWidth="-Infinity" prefWidth="150.0" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane GridPane.rowIndex="4">
+                                       <children>
+                                          <Label text="Total:">
+                                             <font>
+                                                <Font name="System Bold Italic" size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="totalCashFormLB" GridPane.columnIndex="1">
+                                             <font>
+                                                <Font name="System Italic" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints halignment="RIGHT" hgrow="NEVER" percentWidth="50.0" />
+                                          <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" percentWidth="50.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="NEVER" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints halignment="CENTER" hgrow="ALWAYS" minWidth="-Infinity" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints minHeight="-Infinity" prefHeight="20.0" vgrow="NEVER" />
+                                    <RowConstraints minHeight="-Infinity" vgrow="NEVER" />
+                                    <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="NEVER" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                        <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="14.0" text="Documentos" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="0.0">
+                           <content>
+                              <GridPane vgap="10.0">
+                                 <children>
+                                    <GridPane vgap="10.0">
+                                       <children>
+                                          <GridPane>
+                                             <children>
+                                                <Label text="Cheques:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#onEditCheck">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/edit.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onRemoveCheck">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/minus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onAddCheck">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/plus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                                                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="-Infinity" prefHeight="25.0" vgrow="ALWAYS" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <TableView fx:id="checksTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane vgap="10.0" GridPane.rowIndex="1">
+                                       <children>
+                                          <GridPane>
+                                             <children>
+                                                <Label text="Depositos:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_RIGHT" spacing="5.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#onEditDeposit">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/edit.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onRemoveDeposit">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/minus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onAddDeposit">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/plus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints hgrow="NEVER" />
+                                                <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints vgrow="ALWAYS" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <TableView fx:id="depositsTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                    <GridPane vgap="10.0" GridPane.rowIndex="2">
+                                       <children>
+                                          <GridPane>
+                                             <children>
+                                                <Label text="Transferencias:">
+                                                   <font>
+                                                      <Font name="System Bold" size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" GridPane.columnIndex="1">
+                                                   <children>
+                                                      <Button mnemonicParsing="false" onAction="#onEdiTransfer">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/edit.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onRemoveTransfer">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/minus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                      <Button mnemonicParsing="false" onAction="#onAddTransfer">
+                                                         <graphic>
+                                                            <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="/images/plus.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </graphic>
+                                                      </Button>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <columnConstraints>
+                                                <ColumnConstraints halignment="LEFT" hgrow="NEVER" />
+                                                <ColumnConstraints halignment="RIGHT" hgrow="ALWAYS" />
+                                             </columnConstraints>
+                                             <rowConstraints>
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                             </rowConstraints>
+                                          </GridPane>
+                                          <TableView fx:id="transfersTableView" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+                                       </children>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="-Infinity" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints vgrow="ALWAYS" />
+                                       </rowConstraints>
+                                    </GridPane>
+                                 </children>
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="ALWAYS" minWidth="-Infinity" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints percentHeight="33.0" vgrow="ALWAYS" />
+                                    <RowConstraints percentHeight="33.0" vgrow="ALWAYS" />
+                                    <RowConstraints percentHeight="34.0" vgrow="ALWAYS" />
+                                 </rowConstraints>
+                              </GridPane>
+                           </content>
+                        </TitledPane>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab disable="true" text="Bitacora">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

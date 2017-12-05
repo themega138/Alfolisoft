@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="generalService" class="com.mq310.dao.services.impl.GeneralService"
+              abstract="true">
+        <property name="txTemplate" ref="txTemplate"/>
+        <property name="dao" ref="dao" />
+    </bean>
+
+    <bean id="accountsGroupDaoService" class="com.mq310.dao.services.impl.AccountsGroupDaoService"
+              parent="generalService"/>
+        
+    <bean id="accountsPlanDaoService" class="com.mq310.dao.services.impl.AccountsPlanDaoService"
+              parent="generalService"/>
+        
+    <bean id="bankAccountsDaoService" class="com.mq310.dao.services.impl.BankAccountsDaoService"
+              parent="generalService"/>
+        
+    <bean id="initializerDaoService" class="com.mq310.dao.services.impl.InitializerDaoService"
+              parent="generalService"/>
+        
+    <bean id="remittanceDaoService" class="com.mq310.dao.services.impl.RemittanceDaoService"
+              parent="generalService"/>
+        
+    <bean id="memberDaoService" class="com.mq310.dao.services.impl.MemberDaoService"
+              parent="generalService"/>
+        
+    <bean id="accountsPlanItemDaoService" class="com.mq310.dao.services.impl.AccountsPlanItemDaoService"
+              parent="generalService"/>
+        
+    <bean id="bankDaoService" class="com.mq310.dao.services.impl.BankDaoService"
+              parent="generalService"/>
+    
+    <bean id="packetDaoService" class="com.mq310.dao.services.impl.PacketDaoService"
+              parent="generalService"/>
+        
+    <bean id="countingDaoService" class="com.mq310.dao.services.impl.CountingDaoService"
+              parent="generalService">
+        <property name="remittanceService" ref="remittanceDaoService"/>
+    </bean>
+</beans>

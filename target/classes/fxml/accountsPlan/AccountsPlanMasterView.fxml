@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainContent" minHeight="300.0" minWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mq310.alfolisoft.controllers.accountsPlan.AccountsPlanMasterViewController">
+   <children>
+      <ListView fx:id="versionedListView" layoutX="26.0" layoutY="14.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <TreeView fx:id="accountsTreeView" layoutX="218.0" layoutY="45.0" prefWidth="250.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="50.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="30.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label text="Versionado:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#onAddNewVewsion">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Crear una nueva version..." />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="24.0" layoutY="24.0" prefHeight="30.0" prefWidth="250.0" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="10.0">
+         <children>
+            <Label text="Cuentas Activas:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Button defaultButton="true" mnemonicParsing="false" onAction="#onEditAccountsTree">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Editar lista de cuentas..." />
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <PieChart fx:id="porcentChart" labelLineLength="0.0" layoutX="478.0" layoutY="14.0" legendVisible="false" title="Balance Porcentual..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="480.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

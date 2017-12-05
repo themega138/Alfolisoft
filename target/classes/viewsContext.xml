@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="mainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="mainViewController" factory-method="getView"/>
+    
+    <bean id="loginMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="loginMainViewController" factory-method="getView"/>
+    
+    <bean id="loginFormView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="loginFormViewController" factory-method="getView"/>
+    
+    <bean id="systemMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="systemMainViewController" factory-method="getView"/>
+    
+    <bean id="dashboardView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="dashboardViewController" factory-method="getView"/>
+    
+    <bean id="administratorsView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="administratorsViewController" factory-method="getView"/>
+    
+    <bean id="administratorsInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="administratorsInitialViewController" factory-method="getView"/>
+    
+    <bean id="reportsMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="reportsMainViewController" factory-method="getView"/>
+    
+    <bean id="reportsInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="reportsInitialViewController" factory-method="getView"/>
+    
+    <bean id="expensesMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="expensesMainViewController" factory-method="getView"/>
+    
+    <bean id="expensesInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="expensesInitialViewController" factory-method="getView"/>
+    
+    <bean id="remittancesMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="remittancesMainViewController" factory-method="getView"/>
+    
+    <bean id="remittancesInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="remittancesInitialViewController" factory-method="getView"/>
+    
+    <bean id="countingsMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="countingsMainViewController" factory-method="getView"/>
+    
+    <bean id="countingsInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="countingsInitialViewController" factory-method="getView"/>
+    
+    <bean id="countingsCreationView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="countingsCreationViewController" factory-method="getView"/>
+    
+    <bean id="countingsMasterView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="countingsMasterViewController" factory-method="getView"/>
+    
+    <bean id="accountsPlanMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsPlanMainViewController" factory-method="getView"/>
+    
+    <bean id="accountsPlanInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsPlanInitialViewController" factory-method="getView"/>
+    
+    <bean id="accountsPlanMasterView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsPlanMasterViewController" factory-method="getView"/>
+    
+    <bean id="accountsMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsMainViewController" factory-method="getView"/>
+    
+    <bean id="accountsInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsInitialViewController" factory-method="getView"/>
+    
+    <bean id="accountsMasterView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="accountsMasterViewController" factory-method="getView"/>
+    
+    <bean id="membersMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="membersMainViewController" factory-method="getView"/>
+    
+    <bean id="membersInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="membersInitialViewController" factory-method="getView"/>
+    
+    <bean id="bankAccountsMainView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="bankAccountsMainViewController" factory-method="getView"/>
+    
+    <bean id="bankAccountsInitialView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="bankAccountsInitialViewController" factory-method="getView"/>
+    
+    <bean id="bankAccountsMasterView" class="javafx.scene.Parent" lazy-init="true"
+          factory-bean="bankAccountsMasterViewController" factory-method="getView"/>
+</beans>

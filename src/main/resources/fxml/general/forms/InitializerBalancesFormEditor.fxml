@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainContent" prefHeight="470.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TreeView fx:id="treeView" layoutX="14.0" layoutY="77.0" prefWidth="300.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <PieChart fx:id="pieChart" labelLineLength="10.0" layoutX="86.0" layoutY="14.0" legendVisible="false" title="Balance de saldos..." AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+      <TextField fx:id="initialBalanceTF" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="431.0" prefWidth="230.0" promptText="Saldo Inicial..." AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" />
+      <Button fx:id="asingBTN" defaultButton="true" disable="true" layoutX="254.0" layoutY="435.0" mnemonicParsing="false" onAction="#onAsing" prefWidth="60.0" text="Asignar" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="250.0" />
+      <Label layoutX="328.0" layoutY="439.0" prefWidth="90.0" text="Saldo Total:" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="320.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="totalBalanceLB" alignment="CENTER_RIGHT" layoutX="410.0" layoutY="439.0" underline="true" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="410.0" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

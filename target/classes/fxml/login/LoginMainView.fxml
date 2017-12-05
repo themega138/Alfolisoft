@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<StackPane fx:id="loginMainContent" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mq310.alfolisoft.controllers.login.LoginMainViewController">
+   <children>
+      <ImageView depthTest="ENABLE" fitHeight="600.0" fitWidth="800.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="/images/Fondo_1024x768.png" />
+         </image>
+      </ImageView>
+      <GridPane fx:id="gridPane" minHeight="600.0" minWidth="800.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="ALWAYS" />
+            <ColumnConstraints hgrow="NEVER" maxWidth="300.0" minWidth="300.0" prefWidth="300.0" />
+          <ColumnConstraints hgrow="ALWAYS" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints vgrow="ALWAYS" />
+          <RowConstraints maxHeight="425.0" minHeight="425.0" prefHeight="425.0" vgrow="NEVER" />
+          <RowConstraints vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <StackPane alignment="BOTTOM_CENTER" prefHeight="0.0" prefWidth="300.0" GridPane.columnIndex="1" />
+         </children>
+      </GridPane>
+   </children>
+</StackPane>

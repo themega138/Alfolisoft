@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="mainContent" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mq310.alfolisoft.controllers.accounts.AccountsMasterViewController">
+   <children>
+      <TreeView fx:id="accountsTree" layoutX="14.0" layoutY="166.0" prefWidth="350.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="85.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="41.0" prefHeight="30.0" prefWidth="350.0" spacing="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="45.0">
+         <children>
+            <TextField fx:id="searchTF" promptText="Buscar..." HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="NEVER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onEdit">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/edit.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onRemove">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/minus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#onAdd">
+                     <graphic>
+                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="/images/plus.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" layoutX="10.0" layoutY="14.0" prefHeight="30.0" prefWidth="350.0" text="Arbol de Cuentas." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <AreaChart layoutX="311.0" layoutY="10.0" title="Balance General" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="370.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </AreaChart>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>

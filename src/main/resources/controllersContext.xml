@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <bean id="mainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.MainViewController"
+          factory-method="create"
+          init-method="init"/>
+    
+    <bean id="loginMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.login.LoginMainViewController"
+          factory-method="create"
+          init-method="init"/>
+    
+    <bean id="loginFormViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.login.LoginFormViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+    
+    <bean id="systemMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.SystemMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="dashboardViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.DashboardViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+          
+    <bean id="administratorsViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.AdministratorsViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="administratorsInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.AdministratorsInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="reportsMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.reports.ReportsMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="reportsInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.reports.ReportsInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="expensesMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.expenses.ExpensesMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="expensesInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.expenses.ExpensesInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="remittancesMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.remittances.RemittancesMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="remittancesInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.remittances.RemittancesInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="accountsPlanMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accountsPlan.AccountsPlanMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="accountsPlanInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accountsPlan.AccountsPlanInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="accountsPlanMasterViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accountsPlan.AccountsPlanMasterViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="service" ref="accountsPlanDaoService"/>
+        <property name="accountsPlanEditor" ref="accountsPlanEditorDialog"/>
+        <property name="initializerBalancesEditor" ref="InitializerBalancesEditorDialog"/>
+    </bean>
+    
+    <bean id="accountsMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accounts.AccountsMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="accountsInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accounts.AccountsInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="accountsMasterViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.accounts.AccountsMasterViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="accountsGroupEditor" ref="accountsGroupEditorDialog"/>
+        <property name="accountEditor" ref="accountEditorDialog"/>
+        <property name="accountsGroupDaoService" ref="accountsGroupDaoService"/>
+    </bean>
+    
+    <bean id="countingsMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.countings.CountingsMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="countingsInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.countings.CountingsInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="countingsCreationViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.countings.CountingsCreationViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="packetsEditor" ref="packetEditorDialog"/>
+        <property name="countingService" ref="countingDaoService"/>
+        <property name="documentsEditor" ref="incomingBankDocumentEditorDialog"/>
+    </bean>
+    
+    <bean id="countingsMasterViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.countings.CountingsMasterViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="packetsEditor" ref="packetEditorDialog"/>
+        <property name="countingService" ref="countingDaoService"/>
+        <property name="documentsEditor" ref="incomingBankDocumentEditorDialog"/>
+    </bean>
+    
+    <bean id="membersMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.members.MembersMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="membersInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.members.MembersInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="bankAccountsMainViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.bankAccounts.BankAccountsMainViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="bankAccountsInitialViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.bankAccounts.BankAccountsInitialViewController"
+          factory-method="create"
+          init-method="init">
+    </bean>
+    
+    <bean id="bankAccountsMasterViewController" lazy-init="true"
+          class="com.mq310.alfolisoft.controllers.bankAccounts.BankAccountsMasterViewController"
+          factory-method="create"
+          init-method="init">
+        <property name="bankAccountsEditor" ref="bankAccountsEditorDialog"/>
+        <property name="service" ref="bankAccountsDaoService"/>
+    </bean>
+</beans>

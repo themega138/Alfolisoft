@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="mainContent" minHeight="359.0" minWidth="687.0" prefHeight="359.0" prefWidth="807.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mq310.alfolisoft.controllers.bankAccounts.BankAccountsMasterViewController">
+   <children>
+      <TabPane layoutX="25.0" layoutY="14.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+        <tabs>
+          <Tab closable="false" text="Cuentas Bancarias">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TreeView fx:id="bankAccountsTreeView" layoutX="35.0" layoutY="25.0" prefWidth="290.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                        <HBox alignment="CENTER_LEFT" layoutX="110.0" layoutY="14.0" minHeight="30.0" minWidth="290.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <children>
+                              <Label text="Cuentas Bancarias:">
+                                 <font>
+                                    <Font name="System Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                              <HBox alignment="CENTER_RIGHT" spacing="5.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Button mnemonicParsing="false" onAction="#onEditAccount">
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="/images/edit.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onRemoveAccount">
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="/images/minus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#onAddAccount">
+                                       <tooltip>
+                                          <Tooltip text="Empty Tooltip" />
+                                       </tooltip>
+                                       <graphic>
+                                          <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="/images/plus.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <TitledPane animated="false" collapsible="false" layoutX="320.0" layoutY="14.0" prefHeight="110.0" prefWidth="400.0" text="Info:" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="10.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0">
+                                 <children>
+                                    <GridPane hgap="10.0" layoutX="34.0" layoutY="14.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" />
+                                        <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="Numero de Cuenta:">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label text="Banco:" GridPane.rowIndex="1">
+                                             <font>
+                                                <Font name="System Bold" size="12.0" />
+                                             </font>
+                                          </Label>
+                                          <Label fx:id="accountNumberLB" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" />
+                                          <Label fx:id="bankNameLB" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </TitledPane>
+                      <TitledPane collapsible="false" layoutX="529.0" layoutY="9.0" prefHeight="250.0" text="Lista de Documentos" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="10.0">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="documentsTB" layoutX="23.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                      <TitledPane animated="false" collapsible="false" layoutX="693.0" layoutY="233.0" text="Lista de Movimientos" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="270.0">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="movementsTable" layoutX="93.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </TitledPane>
+                        <StackedBarChart layoutX="270.0" layoutY="120.0" prefWidth="400.0" title="Movimientos" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="310.0" AnchorPane.topAnchor="130.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </StackedBarChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab closable="false" text="Bancos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="banksLisView" layoutX="14.0" layoutY="14.0" minWidth="300.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="50.0" />
+                        <TableView layoutX="320.0" layoutY="215.0" prefHeight="344.0" prefWidth="380.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="240.0" />
+                        <Label layoutX="320.0" layoutY="277.0" minWidth="-Infinity" prefHeight="30.0" prefWidth="380.0" text="Telefonos" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="210.0">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <HBox layoutX="434.0" layoutY="127.0" prefHeight="30.0" prefWidth="380.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0" />
+                        <Label layoutX="14.0" layoutY="14.0" text="Bancos:" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="400.0" layoutY="10.0" prefWidth="380.0" text="Logo:" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="banksLogo" fitHeight="100.0" fitWidth="380.0" layoutX="410.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
+</AnchorPane>
